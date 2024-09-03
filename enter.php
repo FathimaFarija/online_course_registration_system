@@ -31,17 +31,28 @@
     </nav>
     
     <section class="home" id="home">
-        
     <div class="content">
-       
-      <h1>Horizon University</h1>
-      <p>Education is the most powerful tool you have—<br>
-        it shapes your future, opens endless possibilities,<br> and turns your dreams into reality.<br>
-         Keep learning, and the<b> world becomes yours</b></p>
-        
-    </div>
 
-    </section>
+      <h1>Horizon University<br></h1>
+      <div>
+        <div class="nav1">
+            <p>Education is the most powerful tool you have—<br>
+                it shapes your future, opens endless possibilities,<br> and turns your dreams into reality.<br>
+                 Keep learning, and the world becomes yours<br><br>
+                 <b>All the best your bright future.......</b>
+                </p>
+                 
+        </div>
+        <div>
+            <img src="graduate.jpg" alt="" width="350px" height="300px">
+        </div>
+      </div>
+      
+    </div>
+     </section>
+</div>
+
+<footer>Horizon University &copy; 2024</footer>
 
 </body>
 </html>

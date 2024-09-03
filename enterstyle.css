@@ -16,8 +16,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 110vh;
+    min-height: 95vh;
+    flex-direction: column;
     background: rgba(39, 39, 39, 0.4);
+    flex: 1;
 }
 .nav{
     position: fixed;
@@ -29,6 +31,18 @@ body{
     line-height: 100px;
     background: linear-gradient(rgba(39,39,39, 0.6), transparent);
     z-index: 100;
+}
+
+.nav1{
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    width:90%;
+    height: 50px;
+    z-index: 100;
+    font-size: 25px;
+    text-align: justify;
+    
 }
 
 .nav-logo p{
@@ -68,6 +82,13 @@ section{
     padding:2rem 9%;
 }
 
+section h1{
+    font-size: 100px;
+    animation: stl1 10s infinite linear;
+}
+section h2{
+    font-size: 40px;
+}
 
 @media only screen and (max-width: 786px){
     .nav-button{
@@ -107,7 +128,20 @@ section{
         background: rgba(255, 255, 255, 0.15);
     }
 }
-
+@keyframes stl1 {
+    0% {
+        color: #cdbdbd;
+    }
+    50% {
+        color: #650e0e; 
+    }
+    75% {
+        color:rgb(113, 173, 226);
+     }
+    100% {
+        color:rgb(9, 94, 82);
+     }
+}
 .home{
     display: flex;
     align-items: right;
@@ -115,6 +149,19 @@ section{
     border-radius: 10px;
     opacity: 70%;
     font-family: 'Poppins', sans-serif;
-   
+    margin-top: 150px;
+    
 }
 
+footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+para{
+    font-size: 25px;
+}
