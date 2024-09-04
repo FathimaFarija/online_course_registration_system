@@ -25,11 +25,11 @@
             </ul>
         </div>
         <div>
-            <h1>"                                                                 "</h1>
+            <h1>                                                                 </h1>
         </div>
     </nav>
 
    
-   
+    <footer>Horizon University &copy; 2024</footer>   
 </body>
 </html>

@@ -92,3 +92,12 @@ body .container {
 .link:hover, .active{
   border-bottom: 2px solid #fff;
 }
+
+footer {
+  background-color: #000000;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  margin-top: auto;
+}

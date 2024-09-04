@@ -49,3 +49,12 @@ body {
     cursor: pointer;
     box-shadow: 0 5px 5px rgba(0,0,0,0.2);
 }
+
+footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: 680px;
+  }

@@ -129,6 +129,7 @@ if(isset($_POST["submit"])){
         </div>
       </div>
     </div>
+    <footer>Horizon University &copy; 2024</footer>
 
     <script src="About.js"></script>
   </body>

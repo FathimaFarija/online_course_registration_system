@@ -136,7 +136,7 @@ if(isset($_POST["submit"])){
           <span class="circle one"></span>
           <span class="circle two"></span>
 
-          <form  id="payment-form" action="pop.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+          <form  id="payment-form" action="pop.html" method="POST" enctype="multipart/form-data" autocomplete="off">
             <h3 class="title">Payment Details</h3>
             <div class="input-container">
               <input type="text" name="fname" class="input" />
@@ -184,5 +184,6 @@ if(isset($_POST["submit"])){
     </div>
     
     <script src="about.js"></script>
+    
   </body>
 </html>
