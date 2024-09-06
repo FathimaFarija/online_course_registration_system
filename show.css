@@ -82,10 +82,15 @@ body{
 
 .content{
     background-color: #dbdbdb;
-    height: 200px;
-    width: 400px;
+    height: 300px;
+    width: 200px;
     opacity: 80%;
     border-radius: 10px;
+    font-style:italic;
+    text-align:30%;
+    font-weight: bolder;
+    font-size: 20px;
+    
 }
 .content .name{
     color: #000;
@@ -101,6 +106,7 @@ body{
     margin-top: 10px;
     margin-bottom: 20px;
     opacity: 0;
+  
     animation: animate 1s ease-in-out 0.3s 1 forwards;
 }
 
