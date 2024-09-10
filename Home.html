@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Login&Signup</title>
 </head>
@@ -17,21 +18,23 @@
         <div class="nav-menu" id="navMenu">
             <ul>
                 <li><a href="Home.php" class="link active">Home</a></li>
-                <li><a href=# class="link">Course</a></li>
-                <li><a href="#" class="link">Registration</a></li>
-                <li><a href="#" class="link">About us</a></li>
-                <li><a href="#" class="link">Payment</a></li>
-                <li><a href="#" class="link">Status of student</a></li>
-                <li><a href="#" class="link">Instuction</a></li>
+                <li><a href="course.html" class="link">Course</a></li>
+                <li><a href="#" class="link" title="First you should signin using username and password">Registration</a></li>
+                <li><a href="Aboutus.php" class="link">About us</a></li>
+                <li><a href="#" class="link"title="After Registration you can go this section">Payment</a></li>
+                <li><a href="studentdetails.php" class="link">Status of student</a></li>
+                <li></li>
             </ul>
         </div>
         <div class="nav-button">
             <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
             <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+           
         </div>
         <div class="nav-menu-btn">
             <i class="bx bx-menu" onclick="myMenuFunction()"></i>
         </div>
+        <a href="Instraction.html" class="link"><i class="fa-solid fa-circle-question fa-2xl" style="color: #ffffff;"></i></a>
     </nav>
 <!----------------------------- Form box ----------------------------------->    
     <div class="form-box">
@@ -44,7 +47,7 @@
             </div>
             <form action="login.php" method="POST" autocomplete="off">
     <div class="input-box">
-        <input type="text" name="mail" class="input-field" placeholder="    Email">
+        <input type="text" name="mail" class="input-field" placeholder="    username">
         <i class="bx bx-user"></i>
     </div>
     <div class="input-box">
@@ -55,17 +58,7 @@
         <input type="submit" class="submit" value="Sign In">
     </div>
 </form>
-
-            
-            <div class="two-col">
-                <div class="one">
-                    <input type="checkbox" id="login-check">
-                    <label for="login-check"> Remember Me</label>
-                </div>
-                <div class="two">
-                    <label><a href="#">Forgot password?</a></label>
-                </div>
-            </div>
+         
         </div>
         <!------------------- registration form -------------------------->
         <div class="register-container" id="register">

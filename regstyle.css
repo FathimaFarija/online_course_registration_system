@@ -9,9 +9,13 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+   /* background: #56380ba7;*/
+    background: url("back.jpg");
+    background: opacity 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow: hidden;
-    background: #56380ba7;
-    
   }
   ::selection{
     color: #fff;
@@ -21,6 +25,7 @@
     width: 550px;
     font-weight: bold;
     background: #fff;
+    opacity: 90%;
     text-align: center;
     border-radius: 5px;
     padding: 50px 50px 20px 35px;

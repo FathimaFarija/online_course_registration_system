@@ -1,5 +1,10 @@
 body {
-    background:#56380ba7 ;
+   /* background: linear-gradient(to right, #a8edf0, #56a6ab, #1d5659);*/
+    background: url("background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
 
   }
 

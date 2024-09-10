@@ -7,6 +7,7 @@
 }
 body{
     background: url("full.jpeg");
+    
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -36,6 +37,7 @@ body{
     font-size: 25px;
     font-weight: 600;
     margin-top: 20px;
+    margin-left: 20px;
 }
 .nav-menu ul{
     display: flex;
@@ -43,13 +45,21 @@ body{
 .nav-menu ul li{
     list-style-type: none;
 }
+
 .nav-menu ul li .link{
     text-decoration: none;
     font-weight: 500;
     color: #fff;
     padding-bottom: 15px;
-    margin: 0 25px;
+    margin: 0px 30px;
+    
+    
 }
+
+
+
+
+
 .link:hover, .active{
     border-bottom: 2px solid #fff;
 }
@@ -62,6 +72,7 @@ body{
     border-radius: 30px;
     cursor: pointer;
     transition: .3s ease;
+    margin-left: 200px;
 }
 .btn:hover{
     background: rgba(255, 255, 255, 0.3);
@@ -241,5 +252,7 @@ header{
         gap: 0;
     }
 }
+
+
 
 

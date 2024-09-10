@@ -3,12 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body{
-    background: #f5f5f5;
+    background: url("show1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow: hidden;
+    
 }
-
 .container{
     position: absolute;
     top: 50%;
@@ -82,21 +84,26 @@ body{
 
 .content{
     background-color: #dbdbdb;
-    height: 300px;
-    width: 200px;
+    height:auto;
     opacity: 80%;
     border-radius: 10px;
-    font-style:italic;
     text-align:30%;
-    font-weight: bolder;
     font-size: 20px;
     
 }
+
+.nav-button a img{
+    width:30px;
+    height:30px;
+}
 .content .name{
     color: #000;
-    font-size: 40px;
+    font-size: 35px;
     text-transform: uppercase;
     font-weight: bold;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: justify;
     opacity: 0;
     animation: animate 1s ease-in-out 1 forwards;
 }
@@ -106,7 +113,10 @@ body{
     margin-top: 10px;
     margin-bottom: 20px;
     opacity: 0;
-  
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;
+   font-style: italic;
     animation: animate 1s ease-in-out 0.3s 1 forwards;
 }
 
@@ -157,4 +167,13 @@ body{
 .button button:hover{
     background: #ababab;
     color: #fff;
+}
+
+.button button:last-child {
+    margin-left: 700px;
+   
+}
+a{
+    text-decoration: none;
+    color: #488d25;
 }
