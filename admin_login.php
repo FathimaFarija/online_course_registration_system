@@ -1,40 +1,46 @@
 <?php
 include 'db_connect.php';
 
+session_start(); // Start a session to track logged-in users
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['mail'];
-    $password = $_POST['psw'];
+    // Sanitize user inputs
+    $email = htmlspecialchars(trim($_POST['mail']));
+    $password = htmlspecialchars(trim($_POST['psw']));
 
-    // Prepare and bind
-    $stmt = $conn->prepare("SELECT id, password FROM ad_page WHERE mail = ?");
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<p style='color: red;'>❌ Invalid email format! Please try again.</p>";
+        exit();
+    }
+
+    // Check if email exists
+    $stmt = $conn->prepare("SELECT id, aname, password FROM ad_page WHERE mail = ?");
     $stmt->bind_param("s", $email);
-
-    // Execute the statement
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $hashed_password);
+        $stmt->bind_result($id, $adminName, $hashed_password);
         $stmt->fetch();
 
         // Verify the password
         if (password_verify($password, $hashed_password)) {
-            include 'Admin_enter.php';
-            //echo "Login successful!";
-            // Start a session and save user information, or redirect to another page
+            // Successful login
+            $_SESSION['user_id'] = $id; // Store user ID in session
+            $_SESSION['admin_name'] = $adminName; // Store admin name in session
+            
+            // Redirect or include the home admin page here
+            header("Location: student_details.php"); // You can redirect to admin home page
+            exit();
         } else {
-            echo "Invalid password!";
+            echo "<p style='color: red;'>❌ Incorrect password! Please try again.</p>";
         }
     } else {
-        echo "No user found with that email!";
+        echo "<p style='color: red;'>❌ No admin found with this email! Please check your email address.</p>";
     }
 
     $stmt->close();
     $conn->close();
 }
 ?>
-
-
-  
-
-

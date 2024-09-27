@@ -59,8 +59,8 @@ body{
     text-align: center;
   }
 
-.btn{
-    width: 130px;
+.btn2{
+    width: 140px;
     height: 40px;
     font-weight: 500;
     background: rgba(255, 255, 255);
@@ -83,6 +83,11 @@ body{
   font-size:25px;
   animation: stl1 1s infinite linear;  
   
+}
+
+.btn2:hover{
+  background: rgb(0, 164, 179);
+  color: #fff;
 }
 
 @keyframes stl1 {
