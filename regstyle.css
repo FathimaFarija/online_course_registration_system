@@ -19,7 +19,7 @@ body{
 }
 ::selection{
   color: #fff;
-  background: #56380ba7;
+  background: #036d77;
 }
 .container{
   width: 550px;
@@ -82,7 +82,7 @@ form .page .field button{
   width: 50%;
   height: calc(100% + 5px);
   border: none;
-  background:  #56380b;
+  background:  #06BBCC;
   margin-top: -20px;
   border-radius: 5px;
   color: #fff;
@@ -94,7 +94,7 @@ form .page .field button{
   transition: 0.5s ease;
 }
 form .page .field button:hover{
-  background: #56380ba7;
+  background: #036d77;
 }
 form .page .btns button{
   margin-top: -20px!important;
@@ -119,13 +119,13 @@ form .page .btns button.next{
 .container .progress-bar .step p{
   font-weight: 500;
   font-size: 18px;
-  color: #56380ba7;
+  color: #036d77;
   margin-bottom: 8px;
 }
 .progress-bar .step .bullet{
   height: 25px;
   width: 25px;
-  border: 2px solid #56380b;
+  border: 2px solid #06BBCC;
   display: inline-block;
   border-radius: 50%;
   position: relative;
@@ -135,8 +135,8 @@ form .page .btns button.next{
   line-height: 25px;
 }
 .progress-bar .step .bullet.active{
-  border-color: #56380b;
-  background: #56380ba7;
+  border-color: #06BBCC;
+  background: #036d77;
   border-bottom:none;
   
 }
@@ -159,7 +159,7 @@ form .page .btns button.next{
   background: #ffffff;
 }
 .progress-bar .step .bullet.active:after{
-  background: #56380ba7;
+  background: #036d77;
   transform: scaleX(0);
   transform-origin: left;
   animation: animate 0.3s linear forwards;
@@ -174,7 +174,7 @@ form .page .btns button.next{
   display: none;
 }
 .progress-bar .step p.active{
-  color: #56380b;
+  color: #06BBCC;
   transition: 0.2s linear;
 }
 .progress-bar .step .check{
@@ -225,6 +225,11 @@ form .page .btns button.next{
 
 
 .nav-menu ul li button{
-  background: #56380ba7;
+  background: #036d77;
   color: #ffffff;
+  margin-left: 60px;
+  width: 110px;
+  height: 30px;
+  border-radius: 20px;
+  text-align: center;
 }

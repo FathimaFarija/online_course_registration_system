@@ -5,7 +5,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-body{
+.ubody{
   background:linear-gradient(rgba(112, 123, 185, 0.7), rgba(26, 27, 31, 0.7)),  url("./img/graduate.jpg");
   
     background-size: cover;
@@ -22,6 +22,7 @@ body{
 }
 .nav{
     position: fixed;
+
     top: 0;
     display: flex;
     justify-content: space-around;

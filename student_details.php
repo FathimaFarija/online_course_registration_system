@@ -55,8 +55,8 @@ if(isset($_POST["submit"])){
 
 <body>
      <!-- Navbar Start -->
-     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+     <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.12);">
+     <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary"><i class="fa fa-university me-3"></i>Horizon</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -86,31 +86,25 @@ if(isset($_POST["submit"])){
                     </div>
                 </div>
             </div>
-            <a href="Home_new.php" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
 
+         <!-- Header Start -->
+         <div class="container-fluid bg-primary py-5 mb-5 page-header">
+    <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
+    <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">STUDENT APPLICATIONS</h1>
+                
 
-    <!-- Header Start -->
-    <div class="container-fluid bg-primary py-5 mb-5 page-header">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">STUDENT APPLICATIONS</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="student_comment.php">Comment</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="student_selection.php">Selection</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Application</li>
-                        </ol>
-                    </nav>
-                </div>
             </div>
         </div>
     </div>
+</div>
+
     <!-- Header End -->
-    
+
    
   <div class="container">
     <?php

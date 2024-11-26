@@ -219,21 +219,25 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  background: linear-gradient(to right, #01a1c2, #53aabc, #d3eef3)!important ;
- /* background: url("course.png");
+/* body {
+ background: linear-gradient(to right, #01a1c2, #53aabc, #d3eef3)!important ;
+  background: url("course.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  overflow: hidden;*/
+  overflow: hidden;
 
-}
+}*/
 
 body .container {
   margin-top: 150px;
   max-width: 1100px;
 }
 
+.back{
+  background: linear-gradient(to right, #01a1c2, #53aabc, #d3eef3)!important ;
+
+}
 
 #filter-buttons button {
   border-radius: 3px;

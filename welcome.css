@@ -4,13 +4,15 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-body{
+.bdy{
     background: url("background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow: hidden;
+    height: 700px;
 }
+
 .nav{
     position: fixed;
     top: 0;
@@ -37,7 +39,7 @@ body{
     text-align: center;
     margin-left: 120px;
     margin-top: 50px;
-    animation: stl1 5s infinite linear; 
+    color: rgb(255, 255, 255);
     opacity: 90%;
   }
 .reg{

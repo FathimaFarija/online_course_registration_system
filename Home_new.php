@@ -30,6 +30,17 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="style_home.css">
+    <style>
+        #loginBtn:hover, #registerBtn:hover {
+        background-color: #11c2d63d; 
+        color: rgb(0, 0, 0);
+        border-radius: 10px;
+}
+
+       .btn{
+        border-radius: 5px;
+       }
+    </style>
     
 </head>
 
@@ -37,7 +48,7 @@
     
 
      <!-- Navbar Start -->
-     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.121);">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary"><i class="fa fa-university me-3"></i>Horizon</h2>
         </a>
@@ -46,40 +57,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link ">Home</a>
+                <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
-                <a href="courses.html" class="nav-item nav-link ">Courses</a>
+                <a href="courses.html" class="nav-item nav-link">Courses</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu fade-down m-0">
                         <a href="team.html" class="dropdown-item">Our Team</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         <a href="instruction.html" class="dropdown-item">Instruction</a>
-                        
-                    </div>
-                </div>
-
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="Home_admin.php" class="dropdown-item">Admin_Home</a>
-                        <a href="student_selection.php" class="dropdown-item">Students_stutus</a>
-                        <a href="student_comment.php" class="dropdown-item">Student_comments</a>
                     </div>
                 </div>
             </div>
-            <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
-            <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
-            <div class="nav-menu-btn">
-            <i class="bx bx-menu" onclick="myMenuFunction()"></i>
-        </div>
-            <a href="Home_new.php" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+            <div class="d-flex justify-content-center align-items-center my-3">
+                <button class="btn btn-primary py-3 px-4 mx-2" id="loginBtn">Sign In</button>
+                <button class="btn btn-primary py-3 px-4 mx-2" id="registerBtn">Sign Up</button>
+            </div>
         </div>
     </nav>
     <!-- Navbar End -->
 
 
-   
+   <div class="ubody">
     <div class="wrapper">
         
     <!----------------------------- Form box ----------------------------------->    
@@ -248,29 +247,38 @@
       
      </script>
      <script>
-         var a = document.getElementById("loginBtn");
-         var b = document.getElementById("registerBtn");
-         var x = document.getElementById("login");
-         var y = document.getElementById("register");
-         function login() {
-             x.style.left = "4px";
-             y.style.right = "-520px";
-             a.className += " white-btn";
-             b.className = "btn";
-             x.style.opacity = 1;
-             y.style.opacity = 0;
-         }
-         function register() {
-             x.style.left = "-510px";
-             y.style.right = "5px";
-             a.className = "btn";
-             b.className += " white-btn";
-             x.style.opacity = 0;
-             y.style.opacity = 1;
-         }
-     </script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginBtn = document.getElementById("loginBtn");
+            const registerBtn = document.getElementById("registerBtn");
+            const loginForm = document.getElementById("login");
+            const registerForm = document.getElementById("register");
+
+            function login() {
+                loginForm.style.left = "0";
+                loginForm.style.opacity = "1";
+                registerForm.style.right = "-520px";
+                registerForm.style.opacity = "0";
+
+                loginBtn.classList.add("primary-btn");
+                registerBtn.classList.remove("primary-btn");
+            }
+
+            function register() {
+                loginForm.style.left = "-510px";
+                loginForm.style.opacity = "0";
+                registerForm.style.right = "0";
+                registerForm.style.opacity = "1";
+
+                registerBtn.classList.add("primary-btn");
+                loginBtn.classList.remove("primary-btn");
+            }
+
+            loginBtn.addEventListener("click", login);
+            registerBtn.addEventListener("click", register);
+        });
+    </script>
      
-     
+    </div> 
 </body>
 
 </html>
