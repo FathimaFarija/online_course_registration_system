@@ -29,28 +29,15 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-
-    <style>
-        /* Keyframes for the right to left animation */
-        @keyframes slideRightToLeft {
-          0% {
-            transform: translateX(100%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-    
-        /* Animation class */
-        .animate-right-to-left {
-          animation: slideRightToLeft 2s ease-out;
-        }
-      </style>
+    <link rel="stylesheet" href="paycard.css">
+  
 </head>
 
 <body>
-     <!-- Navbar Start -->
-     <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.12);">
+
+       <!-- Navbar Start -->
+
+       <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.12);">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary"><i class="fa fa-university me-3"></i>Horizon</h2>
         </a>
@@ -60,8 +47,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link ">Home</a>
-                <a href="about.php" class="nav-item nav-link">About</a>
-                <a href="courses.html" class="nav-item nav-link active">Courses</a>
+                <a href="about.php" class="nav-item nav-link active">About</a>
+                <a href="courses.html" class="nav-item nav-link ">Courses</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu fade-down m-0">
@@ -71,7 +58,7 @@
                         
                     </div>
                 </div>
-
+    
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
                     <div class="dropdown-menu fade-down m-0">
@@ -84,59 +71,113 @@
         </div>
     </nav>
     <!-- Navbar End -->
+    
 
 
 
 
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5">
-        <div class="owl-carousel header-carousel position-relative">
-            
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-2.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Master Degree course</h5>
-                                <h1 class="display-3 text-white animated slideInDown"> Master Programme in MED</h1>
-                                <p class="fs-6 text-white mb-4 pb-2 ">
-                                    Course Title: Master Programme in MBA<br><br>
-
-                                    Course Code: MBA 501<br><br>
-                                    
-                                    Department: Business<br><br>
-                                    
-                                    Description: This program provides advanced knowledge and skills in business management, focusing on strategic decision-making, leadership, finance, marketing, and operations management. Ideal for professionals seeking executive roles.
-                                    <br><br>
-                                    Prerequisites: Bachelor's degree in Business Administration or related field<br><br>
-                                    
-                                    Credits: 8<br><br>
-                                    
-                                    Instructor: Prof. Mark Wilson<br><br>
-                                    
-                                    Schedule: Fridays, 9:00 AM - 1:00 PM<br><br>
-                                    
-                                    Duration: 4 years<br><br>
-                                    
-                                    Course Fee: Rs.18000 for per year<br><br>
-                                    
-                                    Location: Room 105, Business School<br><br>
-                                    
-                                    Additional Notes: Capstone project involving real-world business problem-solving required.</p>
-                                    <a href="Home_new.php" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft btn-link">Enroll</a>
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Header Start -->
+<div class="back">
+    <div class="container-fluid py-5 mb-20 page-header" style="background: linear-gradient(to right, rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url('./img/uni.jpg'); background-size: cover; background-position: center;">
+      <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
+      <div class="row justify-content-center">
+              <div class="col-lg-10 text-center">
+                  <h1 class="display-3 text-white animated slideInDown">Payment</h1>
+                  
+    
+              </div>
+          </div>
+      </div>
+    </div>
+    
+      <!-- Header End -->
+    <div class="containers">
+        <div class="wrapper">
+          
+          </div>
+        
+         
+          <div class="form">
+            <div class="contact-info">
+              <h1 class="title">Hello Students....</h1>
+              <h3 class="title">Payment Instructions</h3>
+              <p class="text"> <div class="animated slideInUp">
+                <p><strong>Bank Name:</strong> Bank of ceylon(BOC)</p>
+                <p><strong>Account Name:</strong> Horizon University</p>
+                <p><strong>Account Number:</strong> 123-456-7890</p>
+                <p><strong>Registration Amount:</strong>Rs.1000</p>
+    
+    
+                <p><strong>Reference:</strong> Please include your full name and course name as the payment reference.</p>
+                <p><strong>Payment Deadline:</strong> Ensure your payment is made by Payment Deadline 2024/12/31.</p>
+                <p><strong>Contact:</strong> If you have any questions or issues with the payment, feel free to contact our support team </p>
+              </div>
+                
+              </p>
+              
+              
+    
+              
             </div>
+    
+            <div class="contact-form">
+             
+    
+            <div class="container mt-5">
+        <h2 class="text-center">Payment Form</h2>
+        
+        <!-- Payment Type Selection -->
+        <div class="form-group">
+            <label for="payment-type">Choose Payment Method:</label>
+            <select id="payment-type" class="form-control" onchange="showPaymentForm()">
+                <option value=""> 💳 Select Payment Method </option>
+                <option value="online">Online Payment</option>
+                <option value="manual">Manual Payment</option><br>
+            </select>
+        </div>
+
+        <!-- Online Payment Form (Credit Card) -->
+        <div id="online-payment-form" class="payment-method-section" style="display: none;">
+            <h4>Credit Card Payment</h4>
+            <form id="credit-card-form" onsubmit="return handlePayment('online')">
+                <div class="form-group">
+                    <label for="cardholder-name">Cardholder Name</label>
+                    <input type="text" id="cardholder-name" class="form-control" placeholder="John Doe" required />
+                </div>
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19" required />
+                </div>
+                <div class="form-group">
+                    <label for="expiry-date">Expiry Date</label>
+                    <input type="text" id="expiry-date" class="form-control" placeholder="MM/YY" maxlength="5" required />
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="password" id="cvv" class="form-control" placeholder="123" maxlength="3" required />
+                </div> <br>
+                <button type="submit" class="btn btn-primary">Pay Now</button>
+            </form>
+        </div>
+
+        <!-- Manual Payment Form (Bank Deposit Slip) -->
+        <div id="manual-payment-form" class="payment-method-section" style="display: none;">
+            <h4>Bank Deposit Payment</h4>
+            <form id="manual-form" onsubmit="return handlePayment('manual')">
+                <div class="form-group">
+                    <label for="deposit-slip">Upload Deposit Slip Photo</label>
+                    <input type="file" id="deposit-slip" class="form-control" accept=".jpg,.jpeg,.png" required />
+                </div> <br>
+                <button type="submit" class="btn btn-primary">Submit Deposit Slip</button>
+            </form>
         </div>
     </div>
-    <!-- Carousel End -->
-
-
-       
+                  
+              
+            </div>
+          </div>
+        </div>
+ 
 
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -216,7 +257,7 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
@@ -226,9 +267,66 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
+  
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="payment.js"></script>
+
+   
+ <script>
+        function showPaymentForm() {
+            var paymentType = document.getElementById('payment-type').value;
+            var onlinePaymentForm = document.getElementById('online-payment-form');
+            var manualPaymentForm = document.getElementById('manual-payment-form');
+
+            // Hide both forms initially
+            onlinePaymentForm.style.display = 'none';
+            manualPaymentForm.style.display = 'none';
+
+            // Show the relevant form based on user selection
+            if (paymentType === 'online') {
+                onlinePaymentForm.style.display = 'block';
+            } else if (paymentType === 'manual') {
+                manualPaymentForm.style.display = 'block';
+            }
+        }
+
+        function handlePayment(paymentMethod) {
+            // Perform basic validation and redirect if successful
+            if (paymentMethod === 'online') {
+                var cardholderName = document.getElementById('cardholder-name').value;
+                var cardNumber = document.getElementById('card-number').value;
+                var expiryDate = document.getElementById('expiry-date').value;
+                var cvv = document.getElementById('cvv').value;
+
+                // Simple validation (ensure fields are not empty)
+                if (!cardholderName || !cardNumber || !expiryDate || !cvv) {
+                    alert('Please fill all fields.');
+                    return false;
+                }
+                alert('Online Payment Successful! Redirecting...');
+            } else if (paymentMethod === 'manual') {
+                var depositSlip = document.getElementById('deposit-slip').files[0];
+                
+                // Simple validation (check if a file is selected)
+                if (!depositSlip) {
+                    alert('Please upload the deposit slip.');
+                    return false;
+                }
+                alert('Manual Payment Successful! Redirecting...');
+            }
+
+            // Redirect to pop.html after successful payment
+            window.location.href = 'pop_new.html';
+            return false; // Prevent form submission to allow redirection
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

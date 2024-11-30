@@ -1,5 +1,6 @@
 <?php
 include 'db_connect.php';
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize inputs
@@ -9,63 +10,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['psw'];
     $confirm_password = $_POST['cpsw'];
 
-    // Validate  Name (only letters allowed)
+    // Validate inputs
     if (!preg_match("/^[a-zA-Z ]*$/", $firstname)) {
-        echo "<p style='color: red;'>❌ First Name should contain only letters!</p>";
+        echo "❌ First Name should contain only letters!";
         exit();
     }
-    
-    // Validate  Name (only letters allowed)
     if (!preg_match("/^[a-zA-Z ]*$/", $lastname)) {
-        echo "<p style='color: red;'>❌ Last Name should contain only letters!</p>";
+        echo "❌ Last Name should contain only letters!";
         exit();
     }
-
-    // Validate email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<p style='color: red;'>❌ Invalid email format!</p>";
+        echo "❌ Invalid email format!";
         exit();
     }
-
-    // Check if password and confirm password match
     if ($password !== $confirm_password) {
-        echo "<p style='color: red;'>❌ Passwords do not match!</p>";
+        echo "❌ Passwords do not match!";
         exit();
     }
-
-    // Check password strength (at least 8 characters, one uppercase, one number, and one special character)
     if (!preg_match("/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/", $password)) {
-        echo "<p style='color: red;'>❌ Password must be at least 8 characters long, contain at least one uppercase letter, one number, and one special character!</p>";
+        echo "❌ Password must be at least 8 characters, contain an uppercase letter, a number, and a special character!";
         exit();
     }
-    
-    
 
-    // Check if email already exists
-    $checkEmailStmt = $conn->prepare("SELECT * FROM tb_user WHERE mail = ?");
-    $checkEmailStmt->bind_param("s", $email);
-    $checkEmailStmt->execute();
-    $result = $checkEmailStmt->get_result();
-
-    if ($result->num_rows > 0) {
-        echo "Email is already registered!";
-        $checkEmailStmt->close();
+    // Check if email exists
+    $stmt = $conn->prepare("SELECT id FROM tb_user WHERE mail = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+    if ($stmt->num_rows > 0) {
+        echo "❌ Email is already registered!";
         exit();
     }
-    $checkEmailStmt->close();
+    $stmt->close();
 
-    // Hash the password before saving it in the database
+    // Handle image upload
+    if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
+        $upload_dir = "uploads/";
+        if (!is_dir($upload_dir)) {
+            mkdir($upload_dir, 0777, true);
+        }
+        $file_name = uniqid() . "-" . basename($_FILES['image']['name']);
+        $target_file = $upload_dir . $file_name;
+
+        if (!move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+            echo "❌ Failed to upload the image!";
+            exit();
+        }
+    } else {
+        echo "❌ Image upload error!";
+        exit();
+    }
+
+    // Hash the password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO tb_user (fname, lname, mail, password) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $firstname, $lastname, $email, $hashed_password);
+    // Insert user into the database
+    $stmt = $conn->prepare("INSERT INTO tb_user (fname, lname, mail, password, image) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $firstname, $lastname, $email, $hashed_password, $target_file);
 
-    // Execute the statement
     if ($stmt->execute()) {
-        echo "Registration successful!";
+        echo "✅ Registration successful!";
+        header("Location: login.php");
+        exit();
     } else {
-        echo "Error: Unable to complete registration.";
+        echo "❌ Registration failed!";
     }
 
     $stmt->close();

@@ -1,6 +1,8 @@
-body {
+.ubody {
    /* background: linear-gradient(to right, #a8edf0, #56a6ab, #1d5659);*/
+
    background: linear-gradient(rgba(24, 29, 56, .7), rgba(24, 29, 56, .7)), url(full.jpeg);
+   height: 800px;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

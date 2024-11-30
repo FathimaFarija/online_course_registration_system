@@ -1,3 +1,16 @@
+<?php
+session_start();
+if (!isset($_SESSION['fname']) || !isset($_SESSION['image'])) {
+    echo "❌ No user data found! Please log in first.";
+    header("Location: login.php");
+    exit();
+}
+
+$fname = $_SESSION['fname'];
+$image_path = $_SESSION['image'];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +42,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="pop.css" />
+    <link href="welcome.css" rel="stylesheet">
+
     <style>
         /* Keyframes for the right to left animation */
         @keyframes slideRightToLeft {
@@ -40,17 +54,64 @@
             transform: translateX(0);
           }
         }
-    
+
         /* Animation class */
         .animate-right-to-left {
           animation: slideRightToLeft 2s ease-out;
         }
-      </style>
+
+        /* Profile Image Styling */
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Welcome Section Styling */
+        .welcome-section {
+            margin-top: 100px;
+            text-align: center;
+            
+        }
+
+        .head {
+            font-size: 4rem;
+            font-weight: 600;
+            color:white;
+            margin-bottom: 20px;
+        }
+
+        .welcome-text {
+            font-size: 2rem;
+            margin-top: 10px;
+            color:white;
+            
+        }
+
+        .button-container a {
+            display: inline-block;
+            margin: 15px;
+            padding: 10px 25px;
+            background-color:white;
+            color: black;
+            font-size: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button-container a:hover {
+            background-color: #019bb2;
+        }
+
+    </style>
 </head>
 
 <body>
     <!-- Navbar Start -->
-
     <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.12);">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary"><i class="fa fa-university me-3"></i>Horizon</h2>
@@ -60,76 +121,34 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link ">Home</a>
-                <a href="about.php" class="nav-item nav-link active">About</a>
-                <a href="courses.html" class="nav-item nav-link ">Courses</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="instruction.html" class="dropdown-item">Instruction</a>
-                        
-                    </div>
-                </div>
-    
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="Home_admin.php" class="dropdown-item">Admin_Home</a>
-                        <a href="student_selection.php" class="dropdown-item">Students_stutus</a>
-                        <a href="student_comment.php" class="dropdown-item">Student_comments</a>
-                    </div>
-                </div>
+                <a href="index1.php" class="nav-item nav-link">Home</a>
+                <a href="about.php" class="nav-item nav-link">About</a>
+                <a href="courses.html" class="nav-item nav-link active">Courses</a>
             </div>
         </div>
     </nav>
     <!-- Navbar End -->
-    
-    
-    
-       
 
-<div class="ubody">
-    <!--  Start -->
-    <button type="button" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block mt-5 mr-4 btn1" onclick="openPopup()" >Confirmation for Register</button>
-    <div class="popup" id="popup">
-        <img src="ic.jpg">
-        <h2>Thank You!</h2>
-        <p>Your Registration process has been successfully completed.</p>
-        <button type="button" onclick="closePopup()" >OK</button>
+    <!-- Welcome Section Start -->
+     <div class="bdy">
+    <div class="welcome-section">
+        <img src="<?php echo htmlspecialchars($image_path); ?>" alt="Profile Image" class="profile-image">
+        <h1 class="head">Welcome, <?php echo htmlspecialchars($fname); ?>!</h1>
+        <p class="welcome-text"><i>We’re glad to have you here. Explore and enjoy!</i></p>
+        <div class="button-container">
+            <a href="Reg.html">Registration</a>
+            <a href="payment.php">Payment</a>
+            <a href="logout.php">Logout</a>
+        </div>
     </div>
-</div>
-    <script>
-        let popup= document.getElementById("popup");
-        function openPopup(){
-            popup.classList.add("open-popup");
-        }
-        function closePopup(){
-            popup.classList.remove("open-popup");
-        }
-    </script>
-    <!--  End -->
-
- 
-
-
-
-
-    
-
-
+    <!-- Welcome Section End -->
+    </div>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    
 </body>
 
 </html>

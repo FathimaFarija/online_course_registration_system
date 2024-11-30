@@ -111,33 +111,48 @@
                     <!--span>Have an account? <a href="#" onclick="login()">Login</a></span-->
                     <header>Sign Up</header>
                 </div>
-                <form action="signupnew.php" method="POST" autocomplete="off">
-        <div class="two-forms">
-            <div class="input-box">
-                <input type="text" name="fname" id="fname" class="input-field" placeholder="    Firstname">
-                <i class="bx bx-user"></i>
-            </div>
-            <div class="input-box">
-                <input type="text" name="lname" id="lname" class="input-field" placeholder="    Lastname">
-                <i class="bx bx-user"></i>
-            </div>
-        </div><br>
+                <form action="signupnew.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+    <div class="two-forms">
         <div class="input-box">
-            <input type="text" name="mail" id="mail" class="input-field" placeholder="    Email">
-            <i class="bx bx-envelope"></i>
-        </div><br>
-        <div class="input-box">
-            <input type="password" name="psw" id="psw" class="input-field" placeholder="    Password">
-            <i class="bx bx-lock-alt"></i>
-        </div><br>
-        <div class="input-box">
-            <input type="password" name="cpsw" id="cpsw" class="input-field" placeholder="    Confirm Password">
-            <i class="bx bx-lock-alt"></i>
-        </div><br>
-        <div class="input-box">
-            <input type="submit" class="submit" value="submit">
+            <input type="text" name="fname" id="fname" class="input-field" placeholder="First Name" required>
+            <i class="bx bx-user"></i>
         </div>
-    </form>
+        <div class="input-box">
+            <input type="text" name="lname" id="lname" class="input-field" placeholder="Last Name" required>
+            <i class="bx bx-user"></i>
+        </div>
+    </div>
+    <br>
+    
+    <div class="input-box">
+        <input type="email" name="mail" id="mail" class="input-field" placeholder="Email" required>
+        <i class="bx bx-envelope"></i>
+    </div>
+    <br>
+    
+    <div class="two-forms">
+        <div class="input-box">
+            <input type="password" name="psw" id="psw" class="input-field" placeholder="Password" required>
+            <i class="bx bx-lock-alt"></i>
+        </div>
+        <div class="input-box">
+            <input type="password" name="cpsw" id="cpsw" class="input-field" placeholder="Confirm Password" required>
+            <i class="bx bx-lock-alt"></i>
+        </div>
+    </div>
+    <br>
+    
+    <div class="input-box">
+        <label for="image">Profile Picture:</label>
+        <input type="file" name="image" id="image" class="input-field" accept="image/jpg, image/jpeg, image/png" required>
+    </div>
+    <br>
+    
+    <div class="input-box">
+        <button type="submit" class="submit">Submit</button>
+    </div>
+</form>
+
                 
             </div>
         </div>

@@ -1,3 +1,64 @@
+/* Styles for the payment page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h2.title, h3.title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-container {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.input-container label {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 14px;
+    color: #555;
+    transition: 0.3s;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+    color: #007bff;
+}
+
+.card-icons img {
+    width: 30px;
+    margin: 10px;
+}
+
+.btn1 {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn1:hover {
+    background-color: #0056b3;
+}
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
 * {
@@ -39,7 +100,7 @@ textarea {
 }
 
 .contact-form {
-  background-color: #009cabc1;
+  background-color: #59cfda52;
   position: relative;
 }
 
@@ -71,24 +132,8 @@ form {
   margin-bottom: 0.7rem;
 }
 
-.input-container {
-  position: relative;
-  margin: 1rem 0;
-}
 
-.input {
-  width: 100%;
-  outline: none;
-  border: 2px solid #fafafa;
-  background: none;
-  padding: 0.6rem 1.2rem;
-  color: #fff;
-  font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
-  border-radius: 25px;
-  transition: 0.3s;
-}
+
 
 textarea.input {
   padding: 0.8rem 1.2rem;
