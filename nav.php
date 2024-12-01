@@ -1,5 +1,4 @@
-
-    <!-- Navbar Start -->
+<!-- Navbar Start -->
     
     <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.12);">
         <a href="welcome_new.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
@@ -12,12 +11,12 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index1.php" class="nav-item nav-link active">Home</a>
                 <a href="about1.php" class="nav-item nav-link">About</a>
-                <a href="course1.html" class="nav-item nav-link ">Courses</a>
+                <a href="course1.php" class="nav-item nav-link ">Courses</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu fade-down m-0">
                         <a href="team1.php" class="dropdown-item">Our Team</a>
-                        <a href="testimonial1.php" class="dropdown-item">Testimonial</a>
+                        <a href="testimonal1.php" class="dropdown-item">Testimonial</a>
                         <a href="instruction1.php" class="dropdown-item">Instruction</a>
                         
                     </div>

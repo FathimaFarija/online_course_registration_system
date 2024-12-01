@@ -7,31 +7,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize user inputs
     $email = htmlspecialchars(trim($_POST['mail']));
     $password = htmlspecialchars(trim($_POST['psw']));
-
-    // Validate email format
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "<p style='color: red;'>❌ Invalid email format! Please try again.</p>";
-        exit();
-    }
-
-    // Check if email exists
-    $stmt = $conn->prepare("SELECT id, aname, password FROM ad_page WHERE mail = ?");
+    
+    $stmt = $conn->prepare("SELECT id,aname,image, password FROM ad_page WHERE mail = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $adminName, $hashed_password);
+        $stmt->bind_result($id,$AdminName,$image_path, $hashed_password);
+
         $stmt->fetch();
+
 
         // Verify the password
         if (password_verify($password, $hashed_password)) {
             // Successful login
-            $_SESSION['user_id'] = $id; // Store user ID in session
-            $_SESSION['admin_name'] = $adminName; // Store admin name in session
+            $_SESSION['aname'] = $AdminName;
+            $_SESSION['image'] = $image_path;
+            // Store admin name in session
             
             // Redirect or include the home admin page here
-            header("Location: student_details.php"); // You can redirect to admin home page
+            header("Location: welcome_Admin.php"); // You can redirect to admin home page
             exit();
         } else {
             echo "<p style='color: red;'>❌ Incorrect password! Please try again.</p>";

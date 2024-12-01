@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,42 +37,9 @@
 
 <body>
 
-       <!-- Navbar Start -->
-
-       <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.12);">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-university me-3"></i>Horizon</h2>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link ">Home</a>
-                <a href="about.php" class="nav-item nav-link active">About</a>
-                <a href="courses.html" class="nav-item nav-link ">Courses</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="instruction.html" class="dropdown-item">Instruction</a>
-                        
-                    </div>
-                </div>
-    
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="Home_admin.php" class="dropdown-item">Admin_Home</a>
-                        <a href="student_selection.php" class="dropdown-item">Students_stutus</a>
-                        <a href="student_comment.php" class="dropdown-item">Student_comments</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- Navbar End -->
+<?php
+   include 'nav.php';
+   ?>
     
 
 
@@ -127,47 +96,62 @@
         <h2 class="text-center">Payment Form</h2>
         
         <!-- Payment Type Selection -->
+        
         <div class="form-group">
+            
             <label for="payment-type">Choose Payment Method:</label>
             <select id="payment-type" class="form-control" onchange="showPaymentForm()">
-                <option value=""> 💳 Select Payment Method </option>
+                <option value=""> 💳 Select Payment Method</option>
                 <option value="online">Online Payment</option>
-                <option value="manual">Manual Payment</option><br>
+                <option value="manual">Manual Payment</option>
             </select>
         </div>
+        
 
         <!-- Online Payment Form (Credit Card) -->
-        <div id="online-payment-form" class="payment-method-section" style="display: none;">
+        <div id="online-payment-form" class="payment-method-section"  style="display: none;">
             <h4>Credit Card Payment</h4>
-            <form id="credit-card-form" onsubmit="return handlePayment('online')">
+            <form id="credit-card-form" method="POST" action="payment_script.php"  >
+
+                <input type="hidden" name="payment_type" value="online">
+                <div class="form-group">
+                 <label for="reg">Registration_Number</label>
+                 <input type="text" id="reg" name="reg" class="form-control" required>
+                 </div>
                 <div class="form-group">
                     <label for="cardholder-name">Cardholder Name</label>
-                    <input type="text" id="cardholder-name" class="form-control" placeholder="John Doe" required />
+                    <input type="text" id="cardholder-name" name="cardholder_name" class="form-control" placeholder="John Doe" required>
                 </div>
                 <div class="form-group">
                     <label for="card-number">Card Number</label>
-                    <input type="text" id="card-number" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19" required />
+                    <input type="text" id="card-number" name="card_number" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19" required>
                 </div>
                 <div class="form-group">
                     <label for="expiry-date">Expiry Date</label>
-                    <input type="text" id="expiry-date" class="form-control" placeholder="MM/YY" maxlength="5" required />
+                    <input type="text" id="expiry-date" name="expiry_date" class="form-control" placeholder="MM/YY" maxlength="5" required>
                 </div>
                 <div class="form-group">
                     <label for="cvv">CVV</label>
-                    <input type="password" id="cvv" class="form-control" placeholder="123" maxlength="3" required />
-                </div> <br>
+                    <input type="password" id="cvv" name="cvv" class="form-control" placeholder="123" maxlength="3" required>
+                </div>
                 <button type="submit" class="btn btn-primary">Pay Now</button>
             </form>
         </div>
 
+
         <!-- Manual Payment Form (Bank Deposit Slip) -->
-        <div id="manual-payment-form" class="payment-method-section" style="display: none;">
+        <div id="manual-payment-form" class="payment-method-section"  style="display: none;">
             <h4>Bank Deposit Payment</h4>
-            <form id="manual-form" onsubmit="return handlePayment('manual')">
+            <form id="manual-form" method="POST" action="payment_script.php" enctype="multipart/form-data">
+                <input type="hidden" name="payment_type" value="manual">
                 <div class="form-group">
-                    <label for="deposit-slip">Upload Deposit Slip Photo</label>
-                    <input type="file" id="deposit-slip" class="form-control" accept=".jpg,.jpeg,.png" required />
-                </div> <br>
+                 <label for="reg">Registration_Number</label>
+                 <input type="text" id="reg" name="reg" class="form-control" required>
+                 </div>
+                <div class="form-group">
+                    <label for="deposit-slip">Upload Deposit Slip</label>
+                    <input type="file" id="deposit-slip" name="deposit_slip" class="form-control" accept=".jpg,.jpeg,.png" required>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit Deposit Slip</button>
             </form>
         </div>
@@ -272,25 +256,31 @@
     <script src="js/main.js"></script>
     <script src="payment.js"></script>
 
-   
- <script>
-        function showPaymentForm() {
-            var paymentType = document.getElementById('payment-type').value;
-            var onlinePaymentForm = document.getElementById('online-payment-form');
-            var manualPaymentForm = document.getElementById('manual-payment-form');
 
-            // Hide both forms initially
-            onlinePaymentForm.style.display = 'none';
-            manualPaymentForm.style.display = 'none';
+    <script>
+    function showPaymentForm() {
+        // Get the selected payment type from the dropdown
+        var paymentType = document.getElementById('payment-type').value;
 
-            // Show the relevant form based on user selection
-            if (paymentType === 'online') {
-                onlinePaymentForm.style.display = 'block';
-            } else if (paymentType === 'manual') {
-                manualPaymentForm.style.display = 'block';
-            }
+        // Get the form sections
+        var onlineForm = document.getElementById('online-payment-form');
+        var manualForm = document.getElementById('manual-payment-form');
+
+        // Show or hide forms based on selection
+        if (paymentType === 'online') {
+            onlineForm.style.display = 'block';
+            manualForm.style.display = 'none';
+        } else if (paymentType === 'manual') {
+            manualForm.style.display = 'block';
+            onlineForm.style.display = 'none';
+        } else {
+            onlineForm.style.display = 'none';
+            manualForm.style.display = 'none';
         }
-
+    }
+</script>
+       
+ <script>
         function handlePayment(paymentMethod) {
             // Perform basic validation and redirect if successful
             if (paymentMethod === 'online') {

@@ -1,4 +1,4 @@
-<!--?php
+<?php
 require 'regi.php'; // Ensure this file establishes a database connection and defines $conn
 
 if (isset($_POST["submit"])) {
@@ -67,7 +67,7 @@ if (isset($_POST["submit"])) {
     // Close the database connection
     $conn->close();
 }
-?-->
+?>
 
 
 

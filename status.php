@@ -1,3 +1,17 @@
+<?php
+session_start();
+if (!isset($_SESSION['aname']) || !isset($_SESSION['image'])) {
+    echo "❌ No user data found! Please log in first.";
+    header("Location: login.php");
+    exit();
+}
+
+$aname = $_SESSION['aname'];
+$image_path = $_SESSION['image'];
+?>
+
+<?php
+require 'regi.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,107 +43,95 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-
-    <style>
-        /* Keyframes for the right to left animation */
-        @keyframes slideRightToLeft {
-          0% {
-            transform: translateX(100%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-    
-       
-      </style>
 </head>
 
 <body>
+    
+
+
      <!-- Navbar Start -->
-  <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.12);">
-    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 class="m-0 text-primary"><i class="fa fa-university me-3"></i>Horizon</h2>
-    </a>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="index.html" class="nav-item nav-link ">Home</a>
-            <a href="about.php" class="nav-item nav-link">About</a>
-            <a href="course.html" class="nav-item nav-link active">Courses</a>
-            <a href="instruction.html" class="nav-item nav-link">Instruction</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu fade-down m-0">
-                    <a href="team.html" class="dropdown-item">Our Team</a>
-                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+     <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.12);">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-university me-3"></i>Horizon</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index2.php" class="nav-item nav-link">Home</a>
+                <a href="about2.php" class="nav-item nav-link">About</a>
+                <a href="course2.php" class="nav-item nav-link ">Courses</a>
+                <a href="welcome_Admin.php" class="nav-item nav-link ">Main_Page</a>
+
+            </div>
+        </div>
+        <div class="navbar-nav ms-auto p-4 p-lg-0 d-flex align-items-center">
+                    <span class="d-none d-lg-inline">Admin <?php echo htmlspecialchars($aname); ?>!</span>
                     
+    
+                    <img src="<?php echo htmlspecialchars($image_path); ?>" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover; margin-right: 10px;">
                 </div>
-            </div>
+    </nav>
+    <!-- Navbar End -->
 
-           
+
+
+
+       <!-- Header Start -->
+       <div class="container-fluid bg-primary py-5 mb-5 page-header">
+    <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
+    <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Student Status</h1>
+                
+
+            </div>
         </div>
     </div>
-</nav>
-<!-- Navbar End -->
+</div>
 
-
-
-
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5">
-        <div class="owl-carousel header-carousel position-relative">
+    <!-- Header End -->
+    
+  <div class="container">
+    
+   
+   
+    <table border=1 cellspacing=0 cellpadding=10 class="table table-hover text-center">
+    <thead class="table-dark">  
+    <tr>
+            <td>Id</td>
+            <td>Full Name</td>
+            <td>Registration Number</td>
+            <td>Course Name</td>
+            <td>Status</td>
+            <td>Message</td>
+   </tr>
+</thead>
+<tbody>
+        <?php
+        $i=1;
+        $rows=mysqli_query($conn,"SELECT * FROM status  ORDER BY id DESC");
+        ?>
+        <?php foreach($rows as $row) : ?>
+            <tr>
             
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-2.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Foundation</h5>
-                                <h1 class="display-5 text-white animated slideInDown"> Programme in Business Management </h1>
-                                <p class="fs-5 text-white mb-4 pb-2 ">
-                                    Course Title: Programme in Business Management<br><br>
+         <td><?php echo $i++; ?></td>
+         <td><?php echo $row["fullname"];?></td>
+         <td><?php echo $row["reg"];?></td>
+         <td><?php echo $row["coname"];?></td>
+         <td><?php echo $row["status"];?></td>
+         <td><?php echo $row["msg"];?></td>
+        
+         </tr>
+        <?php endforeach; ?>
+        </tbody>
+        </table>
+     </div>
+    
 
-                                    Course Code: BM 301<br><br>
-                                    
-                                    Department: Business<br><br>
-                                    
-                                    Description: Focuses on management principles, organizational behavior, and strategic planning.<br><br>
-                                    
-                                    Prerequisites: Principles of Management (BM 101)<br><br>
-                                    
-                                    Credits: 4<br><br>
-                                    
-                                    Instructor: Prof. Sarah Green<br><br>
-                                    
-                                    Schedule: Tuesdays and Thursdays, 11:00 AM - 12:30 PM<br><br>
-                                    
-                                    Duration: 2 years<br><br>
-                                    
-                                    Course Fee: Rs.1500 for per year<br><br>
-                                    
-                                    Location: Room 102, Business School<br><br>
-                                    
-                                    Additional Notes: Includes case study analyses.</p>
-                                    <a href="Home_new.php" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft btn-link">Enroll</a>
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Carousel End -->
-
-
-       
-
-      <!-- Footer Start -->
-      <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <!-- Footer Start -->
+  <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
@@ -203,8 +205,6 @@
         </div>
     </div>
     <!-- Footer End -->
-
-
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>

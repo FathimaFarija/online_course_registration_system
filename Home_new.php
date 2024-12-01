@@ -59,7 +59,7 @@
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
-                <a href="courses.html" class="nav-item nav-link">Courses</a>
+                <a href="course.html" class="nav-item nav-link">Courses</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu fade-down m-0">
@@ -143,7 +143,7 @@
     <br>
     
     <div class="input-box">
-        <label for="image">Profile Picture:</label>
+        <label for="image" style="color: white;">Profile Picture:</label>
         <input type="file" name="image" id="image" class="input-field" accept="image/jpg, image/jpeg, image/png" required>
     </div>
     <br>

@@ -1,4 +1,16 @@
 <?php
+session_start();
+if (!isset($_SESSION['aname']) || !isset($_SESSION['image'])) {
+    echo "❌ No user data found! Please log in first.";
+    header("Location: login.php");
+    exit();
+}
+
+$aname = $_SESSION['aname'];
+$image_path = $_SESSION['image'];
+?>
+
+<?php
 require 'regi.php';
 
 if(isset($_POST["submit"])){
@@ -57,38 +69,9 @@ if(isset($_POST["submit"])){
 <body>
    
 
-   <!-- Navbar Start -->
-
-    <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.12);">
-    <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-        <h2 class="m-0 text-primary"><i class="fa fa-university me-3"></i>Horizon</h2>
-    </a>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="index.html" class="nav-item nav-link ">Home</a>
-            <a href="course.html" class="nav-item nav-link ">Courses</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                <div class="dropdown-menu fade-down m-0">
-                    <a href="team.html" class="dropdown-item">Our Team</a>
-                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    <a href="instruction.html" class="dropdown-item">Instruction</a>
-                    
-                </div>
-            </div>
-
-            
-            <a href="student_selection.php" class="nav-item nav-link">Students_stutus</a>
-
-            <a href="about.php" class="nav-item nav-link active">About</a>
-        </div>
-    </div>
-</nav>
-<!-- Navbar End -->
-
+<?php
+   include 'navmain.php';
+   ?>
 
 
     <!-- Header Start -->

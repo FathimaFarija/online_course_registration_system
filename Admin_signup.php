@@ -44,19 +44,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $stmt->close();
+    // Handle image upload
+    if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
+        $upload_dir = "uploads/";
+        if (!is_dir($upload_dir)) {
+            mkdir($upload_dir, 0777, true);
+        }
+        $file_name = uniqid() . "-" . basename($_FILES['image']['name']);
+        $target_file = $upload_dir . $file_name;
+
+        if (!move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+            echo "❌ Failed to upload the image!";
+            exit();
+        }
+    } else {
+        echo "❌ Image upload error!";
+        exit();
+    }
 
     // Hash the password before saving it in the database
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert new admin into the database
-    $stmt = $conn->prepare("INSERT INTO ad_page (aname, mail, password) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $AdminName, $email, $hashed_password);
+    $stmt = $conn->prepare("INSERT INTO ad_page (aname, mail, password,image) VALUES (?, ?, ?,?)");
+    $stmt->bind_param("ssss", $AdminName, $email, $hashed_password,$target_file);
 
     // Execute the statement
     if ($stmt->execute()) {
         echo "<p style='color: green;'>✅ Registration successful!</p>";
         // You can redirect to a login page here
-        // header("Location: login.php");
+        header("Location: welcome_Admin.php"); // You can redirect to admin home page
+
     } else {
         echo "<p style='color: red;'>❌ Error: " . $stmt->error . "</p>";
     }

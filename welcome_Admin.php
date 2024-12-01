@@ -1,12 +1,12 @@
 <?php
 session_start();
-if (!isset($_SESSION['fname']) || !isset($_SESSION['image'])) {
+if (!isset($_SESSION['aname']) || !isset($_SESSION['image'])) {
     echo "❌ No user data found! Please log in first.";
     header("Location: login.php");
     exit();
 }
 
-$fname = $_SESSION['fname'];
+$aname = $_SESSION['aname'];
 $image_path = $_SESSION['image'];
 ?>
 
@@ -122,17 +122,19 @@ $image_path = $_SESSION['image'];
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index1.php" class="nav-item nav-link">Home</a>
-                <a href="about1.php" class="nav-item nav-link">About</a>
-                <a href="course1.php" class="nav-item nav-link active">Courses</a>
+                <a href="index2.php" class="nav-item nav-link">Home</a>
+                <a href="about2.php" class="nav-item nav-link">About</a>
+                <a href="course2.php" class="nav-item nav-link ">Courses</a>
+                <a href="welcome_Admin.php" class="nav-item nav-link active">Main_Page</a>
+
             </div>
         </div>
         <div class="navbar-nav ms-auto p-4 p-lg-0 d-flex align-items-center">
-                    <span class="d-none d-lg-inline">Hi, <?php echo htmlspecialchars($fname); ?>!</span>
+                    <span class="d-none d-lg-inline">Hi, <?php echo htmlspecialchars($aname); ?>!</span>
                     
     
                     <img src="<?php echo htmlspecialchars($image_path); ?>" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover; margin-right: 10px;">
-        </div>
+                </div>
     </nav>
     <!-- Navbar End -->
 
@@ -140,12 +142,14 @@ $image_path = $_SESSION['image'];
      <div class="bdy">
     <div class="welcome-section">
         <img src="<?php echo htmlspecialchars($image_path); ?>" alt="Profile Image" class="profile-image">
-        <h1 class="head">Welcome, <?php echo htmlspecialchars($fname); ?>!</h1>
+        <h1 class="head">Admin <?php echo htmlspecialchars($aname); ?>!</h1>
         <p class="welcome-text"><i>We’re glad to have you here. Explore and enjoy!</i></p>
         <div class="button-container">
-            <a href="Reg.php">Registration</a>
-            <a href="payment.php">Payment</a>
-            <a href="logout.php">Logout</a>
+            <a href="student_details.php">Applications</a>
+            <a href="status.php">Selection</a>
+            <a href="student_comment.php">Comment</a>
+            <a href="student_confirmation.php">Payment Section</a>
+            <a href="Logout1.php">Logout</a>
         </div>
     </div>
     <!-- Welcome Section End -->
