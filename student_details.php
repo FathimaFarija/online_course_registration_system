@@ -63,6 +63,29 @@ if(isset($_POST["submit"])){
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+    .form-container {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px 40px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .form-label {
+        font-weight: bold;
+        color: #333;
+    }
+    .btn-success {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+    select, textarea, input {
+        border-radius: 5px;
+    }
+    textarea {
+        resize: none;
+    }
+</style>
 </head>
 
 <body>
@@ -146,7 +169,11 @@ if(isset($_POST["submit"])){
             <tr>
             
          <td><?php echo $i++; ?></td>
-         <td><img src="img/<?php echo $row['image']; ?>" width=200 title="<?php echo $row['image']; ?>"></td>
+         <td>
+          <a href="img/<?php echo htmlspecialchars($row['image']); ?>" target="_blank">
+           View Image
+            </a>
+        </td>
          <td><?php echo $row['fname'] . " " . $row['lname']?></td>
          <td><?php echo $row["gender"];?></td>
          <td><?php echo $row["mail"];?></td>
@@ -162,85 +189,81 @@ if(isset($_POST["submit"])){
         </tbody>
         </table>
         <br>
-        <nav class="navbar bg-primary text-white justify-content-center fs-3 mb-5" ><i> SELECTION STUDENT DETAILS UPDATE </i> </nav>
-        <div class="container d-flex justify-content-center" >
-            <div border="2">
-            
-         <form action="" method="post" style="width:50vw; min-width:300px;">
+        <nav class="navbar bg-primary text-white justify-content-center fs-3 mb-5">
+    SELECTION STUDENT DETAILS UPDATE
+</nav>
+<div class="container d-flex justify-content-center">
+    <div class="form-container">
+        <form action="" method="post" style="width:50vw; min-width:300px;">
             <div class="row mb-3">
-               <div class="col">
-                  <label class="form-label">Full Name:</label>
-                  <input type="text" class="form-control" name="fullname" >
-               </div>
-
-               <div class="col">
-                  <label class="form-label">Registration No:</label>
-                  <input type="text" class="form-control" name="reg" >
-               </div>
+                <div class="col">
+                    <label class="form-label">Full Name:</label>
+                    <input type="text" class="form-control" name="fullname" placeholder="Enter full name">
+                </div>
+                <div class="col">
+                    <label class="form-label">Registration No:</label>
+                    <input type="text" class="form-control" name="reg" placeholder="Enter registration no">
+                </div>
             </div>
-
             <div class="mb-4">
-               <label class="form-label">NIC:</label>
-               <input type="number" class="form-control" name="nic" >
+                <label class="form-label">NIC:</label>
+                <input type="number" class="form-control" name="nic" placeholder="Enter NIC">
             </div>
-
             <div class="mb-4">
-               <label class="form-label">Course Name</label>
-               <select id="cname" name="coname" required>
-                <option>Select the Course Name</option>
-                <option>English skill development</option>
-                <option>Business Information Technology</option>
-                <option>Programme in English</option>
-                <option>Programme in Computing</option>
-                <option>Programme in Business Management</option>
-                <option>Programme in Teacher Education</option>
-                <option>Programme in Psychology</option>
-                <option>Programme in Bio Medical Science</option>
-                <option>Programme in Bio Technology</option>
-                <option>Programme in Fashion Design</option>
-                <option>Programme in Quantity Surveying</option>
-                <option>Diploma in English Language</option>
-                <option>Diploma in Computing</option>
-                <option>Diploma in Primary Teaching</option>
-                <option>Diploma in Physicological Counselling</option>
-                <option>Diploma in Architecture Design</option>
-                <option>Diploma in Business Management</option>
-                <option>Diploma in Financial Management</option>
-                <option>Diploma in Fashion Design</option>
-                <option>Diploma in Quantity Surveying</option>
-                <option>Diploma in Bio Medical Science</option>
-                <option>Diploma in Bio Technology</option>
-                <option>BSc (Hons) Architecture Design</option>
-                <option>Bachelor of Computer Science(Hons)</option>
-                <option>Bachelor of Applied Psychology(Hons)</option>
-                <option>Bachelor of Business Administration(Hons)</option>
-                <option>BEd Early Childhood Edu.(Hons)</option>
-                <option>BEd in TESL(Hons)</option>
-                <option>Master Programme in MED</option>
-                <option>Master Programme in MBA</option>
-                
-              </select>
-            </div>
-
-            <div class="mb-3">
-               <label class="form-label">Status:</label>
-               <select id="state" name="status" required>
-                  <option>Enter status</option>
-                  <option>Select</option>
-                  <option>Reject</option>
-                  <option>Waiting</option>
+                <label class="form-label">Course Name:</label>
+                <select id="cname" name="coname" class="form-select" required>
+                    <option>Select the Course Name</option>
+                    <option>English skill development</option>
+                    <option>Business Information Technology</option>
+                    <option>Programme in English</option>
+                    <option>Programme in Computing</option>
+                    <option>Programme in Business Management</option>
+                    <option>Programme in Teacher Education</option>
+                    <option>Programme in Psychology</option>
+                    <option>Programme in Bio Medical Science</option>
+                    <option>Programme in Bio Technology</option>
+                    <option>Programme in Fashion Design</option>
+                    <option>Programme in Quantity Surveying</option>
+                    <option>Diploma in English Language</option>
+                    <option>Diploma in Computing</option>
+                    <option>Diploma in Primary Teaching</option>
+                    <option>Diploma in Physicological Counselling</option>
+                    <option>Diploma in Architecture Design</option>
+                    <option>Diploma in Business Management</option>
+                    <option>Diploma in Financial Management</option>
+                    <option>Diploma in Fashion Design</option>
+                    <option>Diploma in Quantity Surveying</option>
+                    <option>Diploma in Bio Medical Science</option>
+                    <option>Diploma in Bio Technology</option>
+                    <option>BSc (Hons) Architecture Design</option>
+                    <option>Bachelor of Computer Science(Hons)</option>
+                    <option>Bachelor of Applied Psychology(Hons)</option>
+                    <option>Bachelor of Business Administration(Hons)</option>
+                    <option>BEd Early Childhood Edu.(Hons)</option>
+                    <option>BEd in TESL(Hons)</option>
+                    <option>Master Programme in MED</option>
+                    <option>Master Programme in MBA</option>
                 </select>
             </div>
-
             <div class="mb-3">
-            <label class="form-label">Message:</label><br>
-            <textarea name="msg" class="input" cols="95" rows="5"></textarea>
+                <label class="form-label">Status:</label>
+                <select id="state" name="status" class="form-select" required>
+                    <option>Enter status</option>
+                    <option>Select</option>
+                    <option>Reject</option>
+                    <option>Waiting</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Message:</label><br>
+                <textarea name="msg" class="form-control" cols="95" rows="5" placeholder="Enter your message here"></textarea>
             </div>
             <div>
-               <button type="submit" class="btn btn-success" name="submit">Submit</button>
+                <button type="submit" class="btn btn-success" name="submit">Submit</button>
             </div>
-         </form>
-         </div>
+        </form>
+    </div>
+</div>
       </div>
    </div>
 

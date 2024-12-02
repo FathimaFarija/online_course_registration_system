@@ -143,7 +143,7 @@ $image_path = $_SESSION['image'];
     <div class="welcome-section">
         <img src="<?php echo htmlspecialchars($image_path); ?>" alt="Profile Image" class="profile-image">
         <h1 class="head">Admin <?php echo htmlspecialchars($aname); ?>!</h1>
-        <p class="welcome-text"><i>We’re glad to have you here. Explore and enjoy!</i></p>
+        <p class="welcome-text"><i>Empowering Excellence, Your Hub for Seamless University Administration</i></p>
         <div class="button-container">
             <a href="student_details.php">Applications</a>
             <a href="status.php">Selection</a>

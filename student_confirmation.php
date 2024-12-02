@@ -10,28 +10,7 @@ $aname = $_SESSION['aname'];
 $image_path = $_SESSION['image'];
 ?>
 
-<?php
-require 'regi.php';
 
-if(isset($_POST["submit"])){
-  $fullname=$_POST["fullname"];
-  $reg=$_POST["reg"];
-  $nic=$_POST["nic"];
-  $coname=$_POST["coname"];
-  $status=$_POST["status"];
-  $msg=$_POST["msg"];
-
-  $query = "INSERT INTO status VALUES('','$fullname','$reg','$nic','$coname','$status','$msg')";
-  $result = mysqli_query($conn,$query);
-  
-  if($result){
-    header("Loaction: selection.php?msg=New record created successfully");
-  }
-  else{
-    echo"Failed: ".mysqli_error($conn);
-  }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -112,44 +91,56 @@ if(isset($_POST["submit"])){
   
   <div class="container">
     
-   
-   
-    <table border=1 cellspacing=0 cellpadding=10 class="table table-hover text-center">
-    <thead class="table-dark">  
-    <tr>
-            <td>Id</td>
-            <td>Full Name</td>
-            <td>Registration Number</td>
-            <td>Amount</td>
-            <td>NIC</td>
-            <td>Email</td>
-            <td>cname</td>
-            <td>Deposit slip</td>
-   </tr>
-</thead>
-<tbody>
-        <?php
-        $i=1;
-        $rows=mysqli_query($conn,"SELECT * FROM payment  ORDER BY id DESC");
-        ?>
-        <?php foreach($rows as $row) : ?>
-            <tr>
-            
-         <td><?php echo $i++; ?></td>
-         <td><?php echo $row["fname"];?></td>
-         <td><?php echo $row["reg"];?></td>
-         <td><?php echo $row["amount"];?></td>
-         <td><?php echo $row["nic"];?></td>
-         <td><?php echo $row["email"];?></td>
-         <td><?php echo $row["cname"];?></td>
-         <td><img src="img/<?php echo $row['image']; ?>" width=200 title="<?php echo $row['image']; ?>"></td>
+  <?php
+require 'regi.php'; // Include the database connection file
 
-        
-         </tr>
-        <?php endforeach; ?>
-        </tbody>
-        </table>
-     </div>
+// Fetch payment details
+$query = "SELECT * FROM payments";
+$result = $conn->query($query);
+
+if ($result->num_rows > 0) {
+    echo "<table border='1' cellspacing='0' cellpadding='10' class='table table-hover text-center'>";
+    echo "<thead class='table-dark'>
+            <tr>
+                <th>Registration Number</th>
+                <th>Payment Type</th>
+                <th>Cardholder Name</th>
+                <th>Card Number</th>
+                <th>Expiry Date</th>
+                <th>CVV</th>
+                <th>Deposit Slip</th>
+            </tr>
+          </thead>";
+    echo "<tbody>";
+    
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($row['reg']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['payment_type']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['cardholder_name'] ?? 'N/A') . "</td>";
+        echo "<td>" . htmlspecialchars($row['card_number'] ?? 'N/A') . "</td>";
+        echo "<td>" . htmlspecialchars($row['expiry_date'] ?? 'N/A') . "</td>";
+        echo "<td>" . htmlspecialchars($row['cvv'] ?? 'N/A') . "</td>";
+
+        // For manual payments, display a link to view the uploaded deposit slip
+        if ($row['deposit_slip_path']) {
+            echo "<td><a href='" . htmlspecialchars($row['deposit_slip_path']) . "' target='_blank'>View Deposit Slip</a></td>";
+        } else {
+            echo "<td>N/A</td>";
+        }
+
+        echo "</tr>";
+    }
+
+    echo "</table>";
+} else {
+    echo "No payment records found.";
+}
+
+$conn->close();
+?>
+   
+  
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <!-- Footer Start -->

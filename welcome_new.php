@@ -141,7 +141,7 @@ $image_path = $_SESSION['image'];
     <div class="welcome-section">
         <img src="<?php echo htmlspecialchars($image_path); ?>" alt="Profile Image" class="profile-image">
         <h1 class="head">Welcome, <?php echo htmlspecialchars($fname); ?>!</h1>
-        <p class="welcome-text"><i>We’re glad to have you here. Explore and enjoy!</i></p>
+        <p class="welcome-text"><i>Your Journey, Your Future: Empowering Students for Success</i></p>
         <div class="button-container">
             <a href="Reg.php">Registration</a>
             <a href="payment.php">Payment</a>

@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['fname']) || !isset($_SESSION['image'])) {
+    echo "❌ No user data found! Please log in first.";
+    header("Location: login.php");
+    exit();
+}
+
+$fname = $_SESSION['fname'];
+$image_path = $_SESSION['image'];
+?>
 
 
 <!DOCTYPE html>
@@ -32,6 +43,24 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="paycard.css">
+
+    <style>
+             .icons {
+  display: flex;
+  gap: 30px;
+  font-size: 36px;
+}
+
+.icons i {
+  color: #000; /* You can customize the color */
+}
+
+.icons i:hover {
+  color: #0077ff; /* Hover effect color */
+}
+    </style>
+   
+    
   
 </head>
 
@@ -135,6 +164,12 @@
                     <input type="password" id="cvv" name="cvv" class="form-control" placeholder="123" maxlength="3" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Pay Now</button>
+                <div class="icons">
+  <i class="fab fa-cc-visa"></i> <!-- Visa Icon -->
+  <i class="fab fa-cc-mastercard"></i> <!-- MasterCard Icon -->
+  <i class="fas fa-credit-card"></i> <!-- Credit Card Icon -->
+  <i class="fab fa-paypal"></i> <!-- PayPal Icon -->
+</div>
             </form>
         </div>
 

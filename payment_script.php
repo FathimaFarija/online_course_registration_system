@@ -2,7 +2,7 @@
 require 'regi.php'; // Include the database connection file
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    print_r($_POST);
+    
     $reg = $_POST['reg'] ?? null;
     $payment_type = $_POST['payment_type'] ?? null;
 

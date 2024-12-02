@@ -46,14 +46,14 @@ if (isset($_POST["submit"])) {
                 move_uploaded_file($tempName, 'img/' . $newImageName);
 
                 // Prepare the SQL statement
-                $stmt = $conn->prepare("INSERT INTO registation_form (fname, lname, dob, gender, mail, phone, whatsapp, nic, catagory, cname, duration, image, ol, al, user, pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt = $conn->prepare("INSERT INTO registation_form (fname, lname, dob, gender, mail, phone, whatsapp, nic, catagory, cname, duration, image, ol, al, user, pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
 
                 // Bind the parameters
-                $stmt->bind_param("sssssssssssssss", $fname, $lname, $dob, $gender, $mail, $phone, $whatsapp, $nic, $catagory, $cname, $duration, $newImageName, $ol, $al, $user, $pass);
+                $stmt->bind_param("ssssssssssssssss", $fname, $lname, $dob, $gender, $mail, $phone, $whatsapp, $nic, $catagory, $cname, $duration, $newImageName, $ol, $al, $user, $pass);
 
                 // Execute the statement
                 if ($stmt->execute()) {
-                    echo "<script>alert('Data inserted successfully'); document.location.href='studentdetails.php';</script>";
+                    echo "<script>alert('Data inserted successfully');</script>";
                 } else {
                     echo "<script>alert('Error in registration!');</script>";
                 }
@@ -141,9 +141,9 @@ if (isset($_POST["submit"])) {
   <div class="container">
   <div class="nav-menu" id="navMenu">
             <ul>
-            <li><button><a href="index.html" class="link ">Home</a></button></li>
-            <li><button><a href="course.html" class="link ">Course</a></button></li>
-            <li><button><a href="welcome_new.html" class="link ">Back</a></button></li>
+            <li><button><a href="index1.php" class="link ">Home</a></button></li>
+            <li><button><a href="course1.php" class="link ">Course</a></button></li>
+            <li><button><a href="welcome_new.php" class="link ">Back</a></button></li>
    
             </ul>
         </div>
