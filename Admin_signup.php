@@ -45,15 +45,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->close();
     // Handle image upload
-    if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
+    if (isset($_FILES['aimage']) && $_FILES['aimage']['error'] == UPLOAD_ERR_OK) {
         $upload_dir = "uploads/";
         if (!is_dir($upload_dir)) {
             mkdir($upload_dir, 0777, true);
         }
-        $file_name = uniqid() . "-" . basename($_FILES['image']['name']);
+        $file_name = uniqid() . "-" . basename($_FILES['aimage']['name']);
         $target_file = $upload_dir . $file_name;
 
-        if (!move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+        if (!move_uploaded_file($_FILES['aimage']['tmp_name'], $target_file)) {
             echo "❌ Failed to upload the image!";
             exit();
         }
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert new admin into the database
-    $stmt = $conn->prepare("INSERT INTO ad_page (aname, mail, password,image) VALUES (?, ?, ?,?)");
+    $stmt = $conn->prepare("INSERT INTO ad_page (aname, mail, password,aimage) VALUES (?, ?, ?,?)");
     $stmt->bind_param("ssss", $AdminName, $email, $hashed_password,$target_file);
 
     // Execute the statement

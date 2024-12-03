@@ -47,7 +47,7 @@ $image_path = $_SESSION['image'];
     <style>
              .icons {
   display: flex;
-  gap: 30px;
+  gap: 40px;
   font-size: 36px;
 }
 
@@ -162,8 +162,8 @@ $image_path = $_SESSION['image'];
                 <div class="form-group">
                     <label for="cvv">CVV</label>
                     <input type="password" id="cvv" name="cvv" class="form-control" placeholder="123" maxlength="3" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Pay Now</button>
+                </div><br>
+                <button type="submit" class="btn btn-primary">Pay Now</button><br><br>
                 <div class="icons">
   <i class="fab fa-cc-visa"></i> <!-- Visa Icon -->
   <i class="fab fa-cc-mastercard"></i> <!-- MasterCard Icon -->

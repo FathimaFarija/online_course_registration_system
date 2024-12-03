@@ -139,15 +139,13 @@ if (isset($_POST["submit"])) {
       
 
   <div class="container">
-  <div class="nav-menu" id="navMenu">
-            <ul>
-            <li><button><a href="index1.php" class="link ">Home</a></button></li>
-            <li><button><a href="course1.php" class="link ">Course</a></button></li>
-            <li><button><a href="welcome_new.php" class="link ">Back</a></button></li>
-   
-            </ul>
-        </div>
-   
+    <div class="nav-menu" id="navMenu">
+      <ul>
+     
+      <li><button><a href="welcome_new.php" class="link ">Back</a></button></li>
+
+      </ul>
+  </div>
      <div class="progress-bar">
        <div class="step">
          <p>Name</p>
@@ -215,6 +213,8 @@ if (isset($_POST["submit"])) {
            <div class="field">
              <button class="firstNext next">Next</button>
            </div>
+          
+   
          </div>
 
          <div class="page">

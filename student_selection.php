@@ -1,13 +1,13 @@
 <?php
 session_start();
-if (!isset($_SESSION['fname']) || !isset($_SESSION['image'])) {
+if (!isset($_SESSION['aname']) || !isset($_SESSION['aimage'])) {
     echo "❌ No user data found! Please log in first.";
     header("Location: login.php");
     exit();
 }
 
-$fname = $_SESSION['fname'];
-$image_path = $_SESSION['image'];
+$aname = $_SESSION['aname'];
+$image_path = $_SESSION['aimage'];
 ?>
 
 <?php

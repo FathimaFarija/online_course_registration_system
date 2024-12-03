@@ -84,6 +84,7 @@ $image_path = $_SESSION['image'];
         }
         function closePopup(){
             popup.classList.remove("open-popup");
+            window.location.href = "index.html";
         }
     </script>
     <!--  End -->

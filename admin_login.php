@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars(trim($_POST['mail']));
     $password = htmlspecialchars(trim($_POST['psw']));
     
-    $stmt = $conn->prepare("SELECT id,aname,image, password FROM ad_page WHERE mail = ?");
+    $stmt = $conn->prepare("SELECT id,aname,aimage, password FROM ad_page WHERE mail = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $hashed_password)) {
             // Successful login
             $_SESSION['aname'] = $AdminName;
-            $_SESSION['image'] = $image_path;
+            $_SESSION['aimage'] = $image_path;
             // Store admin name in session
             
             // Redirect or include the home admin page here

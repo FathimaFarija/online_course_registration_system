@@ -225,11 +225,13 @@ form .page .btns button.next{
 
 
 .nav-menu ul li button{
-  background: #036d77;
+  background:  #06BBCC;
   color: #ffffff;
-  margin-left: 60px;
+  
   width: 110px;
   height: 30px;
   border-radius: 20px;
-  text-align: center;
+  text-align: left;
 }
+
+

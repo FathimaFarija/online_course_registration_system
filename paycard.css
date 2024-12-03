@@ -343,16 +343,3 @@ textarea.input {
   }
 }
 
-.icons {
-  display: flex;
-  gap: 20px;
-  font-size: 36px;
-}
-
-.icons i {
-  color: #000; /* You can customize the color */
-}
-
-.icons i:hover {
-  color: #0077ff; /* Hover effect color */
-}

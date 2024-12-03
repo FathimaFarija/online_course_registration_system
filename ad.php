@@ -1,43 +1,10 @@
-<?php
-require 'regi.php';
 
-if(isset($_POST["submit"])){
-  $name=$_POST["name"];
-  $email=$_POST["email"];
-  $phone=$_POST["phone"];
-  $msg=$_POST["msg"];
-
-  $query = "INSERT INTO `about` (`id`, `name`, `email`, `phone`, `msg`) VALUES('', '$name', '$email', '$phone', '$msg')";
-  $result = mysqli_query($conn,$query);
-  
-  if($result){
-    header("Loaction: comment.php?msg=New record created successfully");
-  }
-  else{
-    echo"Failed: ".mysqli_error($conn);
-  }
-}
-?>
-
-<?php
-session_start();
-if (!isset($_SESSION['aname']) || !isset($_SESSION['aimage'])) {
-    echo "❌ No user data found! Please log in first.";
-    header("Location: login.php");
-    exit();
-}
-
-$aname = $_SESSION['aname'];
-$image_path = $_SESSION['aimage'];
-?>
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Horizon University</title>
+    <title>Horizon</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -63,11 +30,26 @@ $image_path = $_SESSION['aimage'];
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="Admin.css">
+    <style>
+        #loginBtn:hover, #registerBtn:hover {
+        background-color: #11c2d63d; 
+        color: rgb(0, 0, 0);
+        border-radius: 10px;
+}
+
+       .btn{
+        border-radius: 5px;
+       }
+    </style>
+    
 </head>
 
 <body>
+    
+
      <!-- Navbar Start -->
-     <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.12);">
+    <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top-fixed p-0" style="background-color: rgba(0, 211, 230, 0.121);">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary"><i class="fa fa-university me-3"></i>Horizon</h2>
         </a>
@@ -76,84 +58,109 @@ $image_path = $_SESSION['aimage'];
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index2.php" class="nav-item nav-link">Home</a>
-                <a href="about2.php" class="nav-item nav-link">About</a>
-                <a href="course2.php" class="nav-item nav-link ">Courses</a>
-                <a href="welcome_Admin.php" class="nav-item nav-link ">Main_Page</a>
-
-            </div>
-        </div>
-        <div class="navbar-nav ms-auto p-4 p-lg-0 d-flex align-items-center">
-                    <span class="d-none d-lg-inline">Admin <?php echo htmlspecialchars($aname); ?>!</span>
-                    
-    
-                    <img src="<?php echo htmlspecialchars($image_path); ?>" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover; margin-right: 10px;">
+                <a href="index1.php" class="nav-item nav-link">Home</a>
+                <a href="about1.php" class="nav-item nav-link">About</a>
+                <a href="course1.php" class="nav-item nav-link">Courses</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="team1.php" class="dropdown-item">Our Team</a>
+                        <a href="testimonal1.php" class="dropdown-item">Testimonial</a>
+                        <a href="instruction1.php" class="dropdown-item">Instruction</a>
+                    </div>
                 </div>
+            </div>
+            <div class="d-flex justify-content-center align-items-center my-3">
+                <button class="btn btn-primary py-3 px-4 mx-2" id="loginBtn">Sign In</button>
+                <button class="btn btn-primary py-3 px-4 mx-2" id="registerBtn">Sign Up</button>
+            </div>
+           
+        </div>
     </nav>
     <!-- Navbar End -->
 
-      <!-- Header Start -->
-      <div class="container-fluid bg-primary py-5 mb-5 page-header">
-    <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
-    <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
-                <h1 class="display-3 text-white animated slideInDown">STUDENT COMMENT</h1>
-                
 
+   <div class="ubody">
+    <div class="wrapper">
+        
+    <!----------------------------- Form box ----------------------------------->    
+        <div class="form-box">
+            
+            <!------------------- login form -------------------------->
+            <div class="login-container" id="login">
+                <div class="top">
+                    <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
+                    <header>Login</header>
+                </div>
+                <form action="admin_login.php" method="POST" autocomplete="off">
+        <div class="input-box">
+            <input type="text" name="mail" class="input-field" placeholder="   Email">
+            <i class="bx bx-user"></i>
+        </div><br>
+        <div class="input-box">
+            <input type="password" name="psw" class="input-field" placeholder="    Password">
+            <i class="bx bx-lock-alt"></i>
+        </div><br>
+        <div class="input-box">
+            <input type="submit" class="submit" value="Sign In">
+        </div>
+    </form>
+             
+            </div>
+            <!------------------- registration form -------------------------->
+            <div class="register-container" id="register">
+                <div class="top">
+                    <!--span>Have an account? <a href="#" onclick="login()">Login</a></span-->
+                    <header>Sign Up</header>
+                </div>
+                <form action="Admin_signup.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+    
+        <div class="input-box">
+            <input type="text" name="aname" id="fname" class="input-field" placeholder="Admin Name" required>
+            <i class="bx bx-user"></i>
+        </div>
+        
+    
+    <br>
+    
+    <div class="input-box">
+        <input type="email" name="mail" id="mail" class="input-field" placeholder="Email" required>
+        <i class="bx bx-envelope"></i>
+    </div>
+    <br>
+    
+    <div class="two-forms">
+        <div class="input-box">
+            <input type="password" name="psw" id="psw" class="input-field" placeholder="Password" required>
+            <i class="bx bx-lock-alt"></i>
+        </div>
+        <div class="input-box">
+            <input type="password" name="cpsw" id="cpsw" class="input-field" placeholder="Confirm Password" required>
+            <i class="bx bx-lock-alt"></i>
+        </div>
+    </div>
+    <br>
+    
+    <div class="input-box">
+        <label for="image" style="color: white;">Profile Picture:</label>
+        <input type="file" name="image" id="image" class="input-field" accept="image/jpg, image/jpeg, image/png" required>
+    </div>
+    <br>
+    
+    <div class="input-box">
+        <button type="submit" class="submit">Submit</button>
+    </div>
+</form>
+
+                
             </div>
         </div>
     </div>
-</div>
-
-    <!-- Header End -->
-  
-
-  <div class="container">
-    <?php
-    if (isset($_GET["msg"])) {
-      $msg = $_GET["msg"];
-      echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-      ' . $msg . '
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>';
-    }
-    ?>
+      
     
 
-    <table class="table table-hover text-center">
-      <thead class="table-dark">
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Phone</th>
-          <th scope="col">Message</th>
-         
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        $sql = "SELECT * FROM `about`";
-        $result = mysqli_query($conn, $sql);
-        while ($row = mysqli_fetch_assoc($result)) {
-        ?>
-          <tr>
-            <td><?php echo $row["id"] ?></td>
-            <td><?php echo $row["name"] ?></td>
-            <td><?php echo $row["email"] ?></td>
-            <td><?php echo $row["phone"] ?></td>
-            <td><?php echo $row["msg"] ?></td>
-            
-          </tr>
-        <?php
-        }
-        ?>
-      </tbody>
-    </table>
-  </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  <!-- Footer Start -->
-  <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+     <!-- Footer Start -->
+     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
@@ -239,9 +246,53 @@ $image_path = $_SESSION['aimage'];
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+       
+        function myMenuFunction() {
+         var i = document.getElementById("navMenu");
+         if(i.className === "nav-menu") {
+             i.className += " responsive";
+         } else {
+             i.className = "nav-menu";
+         }
+        }
+      
+     </script>
+     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginBtn = document.getElementById("loginBtn");
+            const registerBtn = document.getElementById("registerBtn");
+            const loginForm = document.getElementById("login");
+            const registerForm = document.getElementById("register");
+
+            function login() {
+                loginForm.style.left = "0";
+                loginForm.style.opacity = "1";
+                registerForm.style.right = "-520px";
+                registerForm.style.opacity = "0";
+
+                loginBtn.classList.add("primary-btn");
+                registerBtn.classList.remove("primary-btn");
+            }
+
+            function register() {
+                loginForm.style.left = "-510px";
+                loginForm.style.opacity = "0";
+                registerForm.style.right = "0";
+                registerForm.style.opacity = "1";
+
+                registerBtn.classList.add("primary-btn");
+                loginBtn.classList.remove("primary-btn");
+            }
+
+            loginBtn.addEventListener("click", login);
+            registerBtn.addEventListener("click", register);
+        });
+    </script>
+     
+    </div> 
 </body>
 
 </html>
