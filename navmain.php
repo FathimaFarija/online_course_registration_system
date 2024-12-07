@@ -9,7 +9,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="index2.php" class="nav-item nav-link active">Home</a>
+            <a href="index2.php" class="nav-item nav-link">Home</a>
             <a href="about2.php" class="nav-item nav-link">About</a>
             <a href="course2.php" class="nav-item nav-link ">Courses</a>
             <a href="welcome_Admin.php" class="nav-item nav-link ">Main_Page</a>
