@@ -10,15 +10,12 @@ $fname = $_SESSION['fname'];
 $image_path = $_SESSION['image'];
 ?>
 
-
-<?php
-require 'regi.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Horizon University</title>
+    <title>Horizon</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -44,25 +41,27 @@ require 'regi.php'; ?>
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="otp.css">
+
+    <script src="https://smtpjs.com/v3/smtp.js"> </script>
+
 </head>
 
 <body>
-    
+   
 
 
-<?php
-   include 'nav.php';
-   ?>
+    <?php
+    include 'nav.php';
+    ?>
+ 
 
-
-
-
-       <!-- Header Start -->
-       <div class="container-fluid bg-primary py-5 mb-5 page-header">
+ <!-- Header Start -->
+ <div class="container-fluid bg-primary py-5 mb-5 page-header">
     <div class="container" style="padding-top: 100px; padding-bottom: 60px;">
     <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
-                <h1 class="display-3 text-white animated slideInDown">Student Status</h1>
+                <h1 class="display-3 text-white animated slideInDown">OTP verification</h1>
                 
 
             </div>
@@ -71,46 +70,24 @@ require 'regi.php'; ?>
 </div>
 
     <!-- Header End -->
-    
-  <div class="container">
-    
-   
-   
-    <table border=1 cellspacing=0 cellpadding=10 class="table table-hover text-center">
-    <thead class="table-dark">  
-    <tr>
-            <td>Id</td>
-            <td>Full Name</td>
-            <td>Registration Number</td>
-            <td>Course Name</td>
-            <td>Status</td>
-            <td>Message</td>
-   </tr>
-</thead>
-<tbody>
-        <?php
-        $i=1;
-        $rows=mysqli_query($conn,"SELECT * FROM status  ORDER BY id DESC");
-        ?>
-        <?php foreach($rows as $row) : ?>
-            <tr>
-            
-         <td><?php echo $i++; ?></td>
-         <td><?php echo $row["fullname"];?></td>
-         <td><?php echo $row["reg"];?></td>
-         <td><?php echo $row["coname"];?></td>
-         <td><?php echo $row["status"];?></td>
-         <td><?php echo $row["msg"];?></td>
-        
-         </tr>
-        <?php endforeach; ?>
-        </tbody>
-        </table>
-     </div>
-    
 
-    <!-- Footer Start -->
-  <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+
+
+  
+    <div class="form">
+        <h1>OTP</h1>
+        <input type="email" id="email" placeholder="Enter Email...">
+        <div class="otpverify">
+            <input type="text" id="otp_inp" placeholder="Enter the OTP sent to your Email...">
+            <button class="btn" id="otp_btn">Verify</button>
+    
+        </div>
+        <button class="btn" onclick="sendOTP()">Send OTP</button>
+    </div>
+      
+  
+     <!-- Footer Start -->
+     <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
@@ -199,6 +176,7 @@ require 'regi.php'; ?>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="otp.js"></script> 
 </body>
 
 </html>

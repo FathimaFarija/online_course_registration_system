@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($stmt->execute()) {
             echo "Online payment details saved successfully!";
-            header("Location: pop_new.php");
+            header("Location: otp.php");
         } else {
             echo "Error: " . $stmt->error;
         }
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 if ($stmt->execute()) {
                     echo "Manual payment details saved successfully!";
-                    header("Location: pop_new.php");
+                    header("Location: otp.php");
                 } else {
                     echo "Error: " . $stmt->error;
                 }

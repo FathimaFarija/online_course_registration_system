@@ -69,7 +69,7 @@ $image_path = $_SESSION['image'];
 
 <div class="ubody">
     <!--  Start -->
-    <button type="button" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block mt-5 mr-4 btn1" onclick="openPopup()" >Confirmation for Register</button>
+    <button type="button" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block mt-5 mr-4 btn1" onclick="openPopup()" >You paid successfully<br>Now, You Confirmation for Register</button>
     <div class="popup" id="popup">
         <img src="ic.jpg">
         <h2>Thank You!</h2>
