@@ -84,8 +84,9 @@ $image_path = $_SESSION['image'];
                 <div class="instruction-item mb-5 wow fadeInUp" data-wow-delay="0.2s">
                     <h2 class="text-primary mb-3">Step 1: Registration</h2>
                     <p class="bg-light p-4 rounded">
-                        - To register, students click the registration link, redirecting them to the Registration Page.<br>
-                        - Students fill in the required information to create a username and password.
+                        - To register, students click the Join Now button left side top of the button<br>
+                        - if you haven't email and password you go to the signup page and fill the sign up form.<br>
+                       
                     </p>
                 </div>
     
@@ -93,7 +94,7 @@ $image_path = $_SESSION['image'];
                 <div class="instruction-item mb-5 wow fadeInUp" data-wow-delay="0.3s">
                     <h2 class="text-primary mb-3">Step 2: Login and Profile Setup</h2>
                     <p class="bg-light p-4 rounded">
-                        - After successful registration, students log in using their newly created username and password.<br>
+                        - After successful registration, students log in using their newly created email and password.<br>
                         - They are directed to their profile page to browse courses, view course details, and access cost information.
                     </p>
                 </div>
@@ -127,19 +128,20 @@ $image_path = $_SESSION['image'];
     
                 <!-- Step 6 -->
                 <div class="instruction-item mb-5 wow fadeInUp" data-wow-delay="0.7s">
-                    <h2 class="text-primary mb-3">Step 6: Verification and Registration Number</h2>
+                    <h2 class="text-primary mb-3">Step 6:OTP Verification </h2>
                     <p class="bg-light p-4 rounded">
-                        - Once payment and other details are verified, the system issues a registration number.<br>
-                        - Students confirm their registration to complete the process and receive a confirmation message.
+                        - Once payment and other details are verified, the system issues otp for your email.<br>
+                        - Students should insert the correct otp for confirm their payment .<br>
+                        - If your payment successfully paid, then you can see the Confirmation button Right side of the page.
                     </p>
                 </div>
     
                 <!-- Step 7 -->
                 <div class="instruction-item mb-5 wow fadeInUp" data-wow-delay="0.8s">
-                    <h2 class="text-primary mb-3">Step 7: About Us</h2>
+                    <h2 class="text-primary mb-3">Step 7: Confirmation  </h2>
                     <p class="bg-light p-4 rounded">
-                        - Students visit the About Us page to learn about the university’s mission, vision, and history.<br>
-                        - The page also provides options for students to leave comments or ask questions.
+                        - After click the Confirmation button it will show thw dialog box<br>
+                        - you want to give ok. After that you are welcome to as a Horizon university student.
                     </p>
                 </div>
             </div>

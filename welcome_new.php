@@ -126,7 +126,7 @@ $image_path = $_SESSION['image'];
                 <a href="about1.php" class="nav-item nav-link">About</a>
                 <a href="ad.php" class="nav-item nav-link">Admin</a>
                 <a href="student_selection.php" class="nav-item nav-link">Status</a>
-                <a href="course1.php" class="nav-item nav-link active">Courses</a>
+                <a href="course1.php" class="nav-item nav-link ">Courses</a>
             </div>
         </div>
         <div class="navbar-nav ms-auto p-4 p-lg-0 d-flex align-items-center">
